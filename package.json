@@ -1,0 +1,52 @@
+{
+  "name": "react-ssr-ts-scss-rollup",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:alfed7/react-ssr-ts-scss-rollup.git",
+  "author": "Alexander Fedorenko <alfedmix@gmail.com>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "tsc": "npm-run-all tsc:web tsc:server",
+    "dev-client": "yarn dev:web",
+    "dev": "npm-run-all --parallel watch:web dev:server",
+    "build": "npm-run-all build:web build:server",
+    "start": "yarn start:server",
+    "test": "yarn workspaces foreach run test",
+    "tsc:web": "yarn workspace @webssr/web tsc",
+    "dev:web": "yarn workspace @webssr/web dev",
+    "watch:web": "yarn workspace @webssr/web watch",
+    "build:web": "yarn workspace @webssr/web build",
+    "start:web": "yarn workspace @webssr/web start",
+    "test:web": "yarn workspace @webssr/web test",
+    "tsc:server": "yarn workspace @webssr/server tsc",
+    "dev:server": "yarn workspace @webssr/server dev",
+    "build:server": "yarn workspace @webssr/server build",
+    "start:server": "yarn workspace @webssr/server start",
+    "test:server": "yarn workspace @webssr/server test"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-terser": "0.4.3",
+    "@svgr/rollup": "8.1.0",
+    "@types/jest": "^29.5.4",
+    "@types/node": "^20.5.9",
+    "jest": "^29.6.4",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.28.1",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-sass": "^1.12.20",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "yarn-run-all": "^3.1.1"
+  },
+  "packageManager": "yarn@3.3.0"
+}
