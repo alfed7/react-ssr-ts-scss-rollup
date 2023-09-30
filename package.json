@@ -13,7 +13,7 @@
     "dev-client": "yarn dev:web",
     "dev": "npm-run-all --parallel watch:web dev:server",
     "build": "npm-run-all build:web build:server",
-    "start": "yarn start:server",
+    "start": "npm-run-all build start:server",
     "test": "yarn workspaces foreach run test",
     "tsc:web": "yarn workspace @webssr/web tsc",
     "dev:web": "yarn workspace @webssr/web dev",

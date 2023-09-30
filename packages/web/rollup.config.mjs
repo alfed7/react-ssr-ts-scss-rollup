@@ -10,6 +10,9 @@ import svgr from '@svgr/rollup';
 import json from "@rollup/plugin-json";
 import sass from 'rollup-plugin-sass';
 import dotenv from "dotenv";
+import autoprefixer from 'autoprefixer';
+import postcss from 'postcss';
+
 const parseResult = dotenv.config();
 if (parseResult.error) {
   console.log(parseResult.error);
@@ -21,6 +24,7 @@ const pathsToWatch =[ 'src/**' ];
 
 process.env.NODE_ENV = production ? 'production' : '';
 
+console.log("production", production)
 const external = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
@@ -36,6 +40,11 @@ const globalForClient = {
   "node-fetch": 'null'
 };
 
+const sassOptions = {
+  processor: css => postcss([autoprefixer])
+    .process(css, { from: undefined })
+    .then(result => result.css)
+}
 export default [
   {
     input: "./src/main.tsx",
@@ -64,7 +73,7 @@ export default [
         skipPreflightCheck: true
       }),
       json(),
-      replace({
+      replace({preventAssignment: true,
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
         "process.env.API_URL": JSON.stringify(process.env.CLIENT_API_URL),
       }),
@@ -76,7 +85,7 @@ export default [
         targets: [{ src: "src/assets/static/*", dest: "build/client" }],
         copyOnce: true
       }),
-      sass({output: true}),
+      sass({output: true, ...sassOptions}),
       production && terser(),
     ],
     watch: {
@@ -117,7 +126,7 @@ export default [
         skipPreflightCheck: true
       }),
       json(),
-      sass({output: false}),
+      sass({output: false, ...sassOptions}),
       production && terser(),
     ],
     watch: {

@@ -34,7 +34,7 @@ export type RouteObjectSsr = {
 }
 
 const ssr = (routes: any) => (
-  req: express.Request, res: express.Response, next: any) => {
+  req: express.Request, res: express.Response, next: express.NextFunction) => {
   const url_parts = parseUrl(req);
   const urlSearch = url_parts ? url_parts.search : "";
   const urlPath = url_parts ? url_parts.pathname : "";

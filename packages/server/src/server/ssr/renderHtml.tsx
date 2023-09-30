@@ -28,6 +28,7 @@ export default (routes: any, req: any, store: any) => {
     <head>
       ${helmetTitle}
       ${helmetMeta}
+      <link rel="icon" href="/appIcon.svg" />
       <link rel="stylesheet" href="/main.css">
       <script src="/main.js" defer></script>
     </head>
