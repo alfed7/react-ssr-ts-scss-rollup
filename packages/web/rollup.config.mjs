@@ -11,6 +11,8 @@ import json from "@rollup/plugin-json";
 import dotenv from "dotenv";
 import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
+import postcssUrl from 'postcss-url'
+import path from 'path'
 
 const parseResult = dotenv.config();
 if (parseResult.error) {
@@ -40,8 +42,19 @@ const globalForClient = {
 };
 
 const sassOptions = {
+  to: 'build/client',
   plugins: [
-    autoprefixer()
+    autoprefixer(),
+    postcssUrl({
+      url: 'copy',
+      assetsPath: 'client'
+    }),
+    postcssUrl({
+      url (asset) {
+        const rebasedUrl = `/files/${path.basename(asset.absolutePath)}`
+        return rebasedUrl
+      }
+    })
   ]
 }
 export default [
@@ -125,7 +138,7 @@ export default [
         skipPreflightCheck: true
       }),
       json(),
-      postcss({extract: false, ...sassOptions}),
+      postcss({extract: false}),
       production && terser(),
     ],
     watch: {
