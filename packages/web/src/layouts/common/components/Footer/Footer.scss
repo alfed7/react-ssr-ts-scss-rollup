@@ -1,0 +1,32 @@
+.footer {
+  background-color: #333; /* Footer background color */
+  color: #fff; /* Text color */
+  padding: 20px 0; /* Add padding to the top and bottom */
+
+  /* Center the footer content */
+  .footer-content {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Style footer links */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff; /* Link text color */
+    }
+
+    a:hover {
+      color: #ff6600; /* Change link color on hover */
+    }
+  }
+}

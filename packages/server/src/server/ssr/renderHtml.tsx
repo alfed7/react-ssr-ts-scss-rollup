@@ -19,10 +19,10 @@ export default (routes: any, req: any, store: any) => {
   </Router>;
   const content = renderToString(contentJsx);
 
-  //console.log("helmetContext", helmetContext);
   const { helmet } = helmetContext;
   const helmetTitle = (helmet && helmet.title) ? helmet.title.toString() : '';
   const helmetMeta = (helmet && helmet.meta) ? helmet.meta.toString() : '';
+
   const html = `<!DOCTYPE html>
   <html>
     <head>

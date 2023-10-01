@@ -1,5 +1,5 @@
 import App from "../App";
-import { HomeView, NotFoundPage } from "../views";
+import { HomeView, AboutView, NotFoundPage } from "../views";
 import { LandingLayout, MainLayout } from '../layouts';
 
 export const routes = [
@@ -13,8 +13,13 @@ export const routes = [
         path: "/",
       },
       {
+        ...AboutView,
+        layout: MainLayout,
+        path: "/about",
+      },
+      {
         ...NotFoundPage,
-        layout: LandingLayout,
+        layout: MainLayout,
         isNotFound: true,
         path: "*",
       },

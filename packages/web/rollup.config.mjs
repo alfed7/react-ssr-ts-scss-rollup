@@ -8,10 +8,9 @@ import copy from "rollup-plugin-copy";
 import terser from "@rollup/plugin-terser";
 import svgr from '@svgr/rollup';
 import json from "@rollup/plugin-json";
-import sass from 'rollup-plugin-sass';
 import dotenv from "dotenv";
 import autoprefixer from 'autoprefixer';
-import postcss from 'postcss';
+import postcss from 'rollup-plugin-postcss';
 
 const parseResult = dotenv.config();
 if (parseResult.error) {
@@ -41,9 +40,9 @@ const globalForClient = {
 };
 
 const sassOptions = {
-  processor: css => postcss([autoprefixer])
-    .process(css, { from: undefined })
-    .then(result => result.css)
+  plugins: [
+    autoprefixer()
+  ]
 }
 export default [
   {
@@ -85,7 +84,7 @@ export default [
         targets: [{ src: "src/assets/static/*", dest: "build/client" }],
         copyOnce: true
       }),
-      sass({output: true, ...sassOptions}),
+      postcss({extract: true, ...sassOptions}),
       production && terser(),
     ],
     watch: {
@@ -126,7 +125,7 @@ export default [
         skipPreflightCheck: true
       }),
       json(),
-      sass({output: false, ...sassOptions}),
+      postcss({extract: false, ...sassOptions}),
       production && terser(),
     ],
     watch: {

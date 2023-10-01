@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Footer, Header } from "../common/components";
+import "./MainLayout.scss"
 
 export interface IMainProps {
   children: ReactNode;
@@ -8,9 +9,9 @@ export interface IMainProps {
 export const MainLayout = ({children}: IMainProps) => {
 
   return (
-    <div>
+    <div className="main-layout">
       <Header/>
-      <div>{children}</div>
+      <div className="content">{children}</div>
       <Footer/>
     </div>
   );

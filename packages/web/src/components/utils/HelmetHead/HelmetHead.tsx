@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 
 export interface IHelmetHeadProps {
-  title: string
+  title: string,
+  description?: string
 };
 
 export const HelmetHead = (props: IHelmetHeadProps) => {
@@ -12,6 +13,7 @@ export const HelmetHead = (props: IHelmetHeadProps) => {
         property="og:title"
       />
       <title>{props.title}</title>
+      {props.description && <meta name="description" content={props.description} />}
     </Helmet>
   );
 };
