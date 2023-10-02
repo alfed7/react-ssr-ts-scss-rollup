@@ -1,0 +1,4 @@
+export const shibeConstants = {
+  GET_SHIBE_SUCCESS: "GET_SHIBE_SUCCESS",
+  GET_SHIBE_FAILURE: "GET_SHIBE_FAILURE",
+}

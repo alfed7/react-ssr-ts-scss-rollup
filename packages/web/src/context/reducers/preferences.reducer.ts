@@ -7,7 +7,7 @@ export function preferencesReducer(draft: IPreferencesState, action: AnyAction):
   switch (action.type) {
     case 'cookieSettingsAdd': {
       draft.allowCookies = action.value;
-    }
+    }break;
   }
   return draft;
 }

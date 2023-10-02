@@ -7,7 +7,7 @@ export function usersReducer(draft: IUsersState, action: AnyAction): IUsersState
   switch (action.type) {
     case 'USER_LOGIN': {
       draft.userName = action.value;
-    }
+    }break;
   }
   return draft
 }

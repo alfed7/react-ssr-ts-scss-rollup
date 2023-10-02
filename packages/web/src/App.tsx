@@ -7,7 +7,6 @@ import { preferenceActions, useStateSelector } from "./context";
 import { CookiesPolicy } from "./components";
 import { setCookiePolicy, isServer } from "./utils";
 import { useStateDispatch } from "react-reducer-ssr"
-//import appIcon from './assets/appIcon.svg'
 
 export const App: FC = () => {
   const preferences = useStateSelector((s) => s?.preferences);
@@ -15,7 +14,6 @@ export const App: FC = () => {
   const [doShowCookiesConsentPrompt, setShowCookiesConsentPrompt] = useState(false);
 
   useEffect(() => {
-    //console.log("test svr");
     dispatch(preferenceActions.readCookieSettings());
     const doShow = !isServer() && null === preferences?.allowCookies
     setShowCookiesConsentPrompt(doShow)
@@ -34,7 +32,6 @@ export const App: FC = () => {
   );
 };
 async function loadData(dispatch: any, cookies: any) {
-  //console.log('loadData', cookies);
   await dispatch(preferenceActions.readCookieSettings(cookies));
 }
 export default {
