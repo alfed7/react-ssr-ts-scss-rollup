@@ -1,4 +1,5 @@
 import { COOKIE_POLICY, COOKIE_POLICY_ACCEPTED, getCookiePolicy } from "../../utils";
+import { preferencesConstants as consts } from '../constants'
 
 export const preferenceActions = {
   readCookieSettings,
@@ -12,7 +13,7 @@ function isPolicyAccepted(policy?: string): boolean | null {
 
 function setCookiePolicy(allowCookies: boolean | null) {
   return {
-    type: "cookieSettingsAdd",
+    type: consts.COOKIE_SETTINGS_ADD,
     value: allowCookies
   }
 }

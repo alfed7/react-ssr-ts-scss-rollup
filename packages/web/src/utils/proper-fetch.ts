@@ -1,3 +1,4 @@
 import nodeFetch from "node-fetch";
+import { isServer } from "./is-server";
 
-export default typeof(window) != "undefined" ? window.fetch : nodeFetch;
+export default isServer() ? nodeFetch : window.fetch;
