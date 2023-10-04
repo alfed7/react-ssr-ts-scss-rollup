@@ -1,6 +1,6 @@
 import { FC, Fragment, useEffect, useState } from "react";
 import { Outlet } from "react-router";
-import { HelmetHead } from './components';
+import { HelmetHead } from 'helmet-head';
 import './global'
 import './App.scss'
 import '@webssr/design-system/build/index.css'

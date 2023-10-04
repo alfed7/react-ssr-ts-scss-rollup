@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { HelmetHead } from '../../components';
+import { HelmetHead } from 'helmet-head';
 import './HomeView.scss';
 
 const Home = () => {

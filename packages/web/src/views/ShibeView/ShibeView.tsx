@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from "react";
-import { HelmetHead } from '../../components';
+import { HelmetHead } from 'helmet-head';
 import './ShibeView.scss';
 import { shibeActions, useStateSelector } from "../../context";
 import { DispatchFunction, useStateDispatch } from "react-reducer-ssr";
