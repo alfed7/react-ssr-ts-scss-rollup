@@ -1,7 +1,7 @@
 import { hydrateRoot, createRoot } from "react-dom/client";
 import { routes } from "./routes";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
-import { renderRoutes } from "./components";
+import { renderRoutes } from "react-router-layout";
 import { HelmetProvider } from "react-helmet-async";
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 import { reducers } from "./context";

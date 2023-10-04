@@ -3,6 +3,7 @@ import { Outlet } from "react-router";
 import { HelmetHead } from './components';
 import './global'
 import './App.scss'
+import '@webssr/design-system/build/index.css'
 import { preferenceActions, useStateSelector } from "./context";
 import { CookiesPolicy } from "./components";
 import { setCookiePolicy, isServer } from "./utils";

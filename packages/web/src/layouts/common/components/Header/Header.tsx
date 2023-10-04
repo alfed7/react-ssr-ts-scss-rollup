@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import AppIcon from "../../../../assets/appIcon.svg"
 import './Header.scss'
+import { Navbar } from '@webssr/design-system'
 
 export interface IHeaderProps {
 }
@@ -11,14 +12,13 @@ export const Header = (props: IHeaderProps) => {
       <div className="logo">
         <AppIcon style={{width: "48px"}} />
       </div>
-      <nav className="navbar">
-        <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/shibe">Shibe</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-        </ul>
-      </nav>
+
+      <Navbar>
+        <Link to="/">Home</Link>
+        <Link to="/shibe">Shibe</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+      </Navbar>
     </header>
   )
 }

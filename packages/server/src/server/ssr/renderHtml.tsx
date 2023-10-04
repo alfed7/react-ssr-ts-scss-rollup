@@ -1,7 +1,8 @@
 import { renderToString } from "react-dom/server";
 import { StaticRouter as Router } from 'react-router-dom/server'
 import { Routes } from "react-router-dom";
-import { renderRoutes, reducers } from "@webssr/web";
+import { renderRoutes } from "react-router-layout";
+import { reducers } from "@webssr/web";
 import { HelmetProvider } from "react-helmet-async";
 import serialize from "serialize-javascript";
 import { RootContextProvider } from "react-reducer-ssr";

@@ -29,7 +29,8 @@ console.log("production", production)
 const external = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
-  "@babel/runtime"
+  "@babel/runtime",
+  "react/jsx-runtime",
   //, "react-router-dom/server",
   //"react-dom/server"
 ];

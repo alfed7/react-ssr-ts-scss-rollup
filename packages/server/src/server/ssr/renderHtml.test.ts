@@ -1,6 +1,6 @@
 import renderHtml from './renderHtml'
 
 test("SSR", () => {
-  const rendered = renderHtml({}, {});
+  const rendered = renderHtml({}, {}, {});
   expect(rendered).toContain('<html>');
 });
