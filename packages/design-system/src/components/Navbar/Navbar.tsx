@@ -8,8 +8,8 @@ export const Navbar = ({children}: INavbarProps) => {
   return (<nav className="navbar">
     <ul>
       {
-        Children.map(children, (c) => (
-          <li>{c}</li>
+        Children.map(children, (c, i) => (
+          <li key={i}>{c}</li>
         ))
       }
     </ul>

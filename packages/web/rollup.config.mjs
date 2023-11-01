@@ -13,6 +13,7 @@ import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
 import postcssUrl from 'postcss-url'
 import path from 'path'
+import { generateSW } from 'rollup-plugin-workbox'
 
 const parseResult = dotenv.config();
 if (parseResult.error) {
@@ -100,6 +101,15 @@ export default [
       }),
       postcss({extract: true, ...sassOptions}),
       production && terser(),
+      generateSW({
+        swDest: './build/client/sw.js',
+        globDirectory: './build/client',
+        globPatterns: [
+          '**/*.js',
+          '**/*.css',
+          '**/*.svg'
+        ]
+      }),
     ],
     watch: {
       chokidar: {

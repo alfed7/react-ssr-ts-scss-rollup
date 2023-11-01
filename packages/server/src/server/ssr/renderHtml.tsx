@@ -38,6 +38,13 @@ export default (routes: any, req: any, store: any) => {
       <script>
         window.INITIAL_STATE = ${serialize(store.root)}
       </script>
+      <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js');
+          });
+        }
+      </script>
     </body>
   </html>`;
   return html;

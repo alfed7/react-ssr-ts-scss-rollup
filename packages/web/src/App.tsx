@@ -1,9 +1,9 @@
 import { FC, Fragment, useEffect, useState } from "react";
+import './global'
+import '@webssr/design-system/build/index.css'
 import { Outlet } from "react-router";
 import { HelmetHead } from 'helmet-head';
-import './global'
 import './App.scss'
-import '@webssr/design-system/build/index.css'
 import { preferenceActions, useStateSelector } from "./context";
 import { CookiesPolicy } from "./components";
 import { setCookiePolicy, isServer } from "./utils";
