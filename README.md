@@ -5,11 +5,19 @@ A starter template of a Web application based on React/TypeScript/SCSS/Rollup an
 ## Getting started
 
 1. Fork and clone this repository or use it as a template to create a new project on GitHub.
-2. Install dependencies using Yarn:
+2. Install dependencies:
+```bash
+npm install
+```
+or
 ```bash
 yarn install
 ```
 3. Start the development server: 
+```bash
+npm run dev
+```
+or
 ```bash
 yarn dev
 ```

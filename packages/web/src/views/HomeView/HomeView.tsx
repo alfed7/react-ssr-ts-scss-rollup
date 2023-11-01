@@ -6,10 +6,10 @@ const Home = () => {
   return (
     <Fragment>
       <HelmetHead title="A starting template for your web project using React, Rollup,
-        Yarn monorepo, and Server-side rendering (SSR)." description="Web project description" />
+        NPM/Yarn monorepo, and Server-side rendering (SSR)." description="Web project description" />
       <section className="guide">
         <h1>Welcome to Your Web Project</h1>
-        <p>This is a starting template for your web project using React, Rollup, SASS, Yarn monorepo,
+        <p>This is a starting template for your web project using React, Rollup, SASS, NPM/Yarn monorepo,
           and Server-side rendering (SSR).</p>
         <h2>Getting Started</h2>
         <ol>

@@ -56,16 +56,17 @@
     "vite": "4.4.10"
   },
   "scripts": {
-    "build": "yarn tsc & rollup -c",
+    "build": "npm run tsc & rollup -c",
     "clean": "rimraf build",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel tsc-watch watch",
     "tsc": "tsc -b",
     "tsc-watch": "tsc -b --watch",
     "lint": "eslint \"src/**\" --ext .ts --ext .tsx",
-    "test": "jest --watch",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-watch": "jest --watch",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
