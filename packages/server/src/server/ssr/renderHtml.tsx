@@ -31,6 +31,7 @@ export default (routes: any, req: any, store: any) => {
       ${helmetMeta}
       <link rel="icon" href="/appIcon.svg" />
       <link rel="stylesheet" href="/main.css">
+      <link rel="manifest" href="/app.webmanifest">
       <script src="/main.js" defer></script>
     </head>
     <body>
