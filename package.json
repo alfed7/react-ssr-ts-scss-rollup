@@ -11,7 +11,7 @@
   "scripts": {
     "tsc": "npm-run-all tsc:design-system tsc:web tsc:server",
     "dev-client": "npm-run-all --parallel dev:design-system dev:web",
-    "dev": "npm-run-all --parallel watch:design-system watch:web dev:server",
+    "dev": "npm run tsc & npm-run-all --parallel watch:design-system watch:web dev:server",
     "build": "npm-run-all build:design-system build:web build:server",
     "storybook": "npm-run-all --parallel storybook:design-system",
     "start": "npm-run-all build start:server",

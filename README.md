@@ -13,7 +13,8 @@ or
 ```bash
 yarn install
 ```
-3. Start the development server: 
+3. Create .env files in packages/web and packages/server folder. The content can be copied from .env.sample file.
+4. Start the development server: 
 ```bash
 npm run dev
 ```
@@ -29,6 +30,12 @@ yarn dev
 ## Styles
 
 ## State & Reducers
+
+For state management the template uses react-reducer-ssr(https://github.com/alfed7/react-reducer-ssr) which has a similar syntax with Redux but built on top of built-in React context and useReducer. It supports async actions. It uses immer to simplify writing of reducers.
+
+## Progressive Web App (PWA)
+
+## Install as Chrome/Edge/Safari App
 
 ## Server-side rendering (SSR)
 

@@ -20,6 +20,9 @@ export default (routes: any, req: any, store: any) => {
   </Router>;
   const content = renderToString(contentJsx);
 
+  const isProd = process.env.NODE_ENV === 'production';
+  const serviceWorkerScript = isProd ? `<script src="/service-worker.js" defer></script>` : '';
+
   const { helmet } = helmetContext;
   const helmetTitle = (helmet && helmet.title) ? helmet.title.toString() : '';
   const helmetMeta = (helmet && helmet.meta) ? helmet.meta.toString() : '';
@@ -39,13 +42,7 @@ export default (routes: any, req: any, store: any) => {
       <script>
         window.INITIAL_STATE = ${serialize(store.root)}
       </script>
-      <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js');
-          });
-        }
-      </script>
+      ${serviceWorkerScript}
     </body>
   </html>`;
   return html;
