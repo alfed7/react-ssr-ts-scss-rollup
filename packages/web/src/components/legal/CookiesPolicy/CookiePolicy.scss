@@ -3,10 +3,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  button {
+    margin: 0 0.5rem;
+  }
 }
 
 .cookie-policies {
   position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  width: calc(100% - 2rem);
   bottom: 0;
   left: 0;
   width: 100%;

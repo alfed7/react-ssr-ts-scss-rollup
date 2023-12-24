@@ -47,16 +47,16 @@ const globalForClient = {
 };
 
 const sassOptions = {
-  to: 'build/client',
+  to: 'build/client/static/',
   plugins: [
     autoprefixer(),
     postcssUrl({
       url: 'copy',
-      assetsPath: 'client'
+      assetsPath: 'static/'
     }),
     postcssUrl({
       url (asset) {
-        const rebasedUrl = `/files/${path.basename(asset.absolutePath)}`
+        const rebasedUrl = `/static/files/${path.basename(asset.absolutePath)}`
         return rebasedUrl
       }
     })
@@ -66,7 +66,7 @@ const main = {
   input: "./src/main.tsx",
   output: [
     {
-      file: "build/client/main.js",
+      file: "build/client/static/main.js",
       format: "iife",
       name: "main",
       sourcemap: !production,
@@ -98,13 +98,13 @@ const main = {
       copyOnce: true
     }),
     copy({
-      targets: [{ src: "src/assets/static/*", dest: "build/client" }],
+      targets: [{ src: "src/assets/static/*", dest: "build/client/static" }],
       copyOnce: true
     }),
     postcss({extract: true, ...sassOptions}),
     production && terser(),
     production && generateSW({
-      swDest: './build/client/sw.js',
+      swDest: './build/client/static/sw.js',
       globDirectory: './build/client',
       globPatterns: [
         '**/*.js',
@@ -112,8 +112,8 @@ const main = {
         '**/*.svg'
       ]
     }),
-    devServer && serve({ contentBase: 'build/client', historyApiFallback: true, open: true }),
-    devServer && livereload()
+    devServer && serve({ contentBase: ['', 'build/client'], historyApiFallback: true, open: true, verbose: true }),
+    devServer && livereload({ watch: "build/client" })
   ],
   watch: {
     chokidar: {

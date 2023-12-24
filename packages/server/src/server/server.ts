@@ -15,7 +15,9 @@ if (parseResult.error) {
 import { reducers } from "@webssr/web";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const appBundleDirectory = path.join(__dirname, "../../../web/build/client");
+const subDir = process.env.NODE_ENV === "production" ? ".." : "../../../web/build";
+const appBundleDirectory = path.join(__dirname, subDir, "client");
+
 const htmlTemplatePath = path.join(appBundleDirectory, "index.html");
 
 // Create server
